@@ -1,7 +1,10 @@
 import React , { Component,useState } from 'react';
 import Age from './Age'
-import Datepicker from 'react-datepicker'
+import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker'
+
+
+
 class Form extends Component{
   
   valueRef = React.createRef();
@@ -20,9 +23,20 @@ class Form extends Component{
     }
     this.props.handle(mainInfo);
 
-    e.currentTarget.reset();
+    const Example = () => {
+      const [startDate, setStartDate] = useState(null);
+      return (
+        
+        <DatePicker 
+        selected={startDate} 
+        onChange={date => setStartDate(date)} />
+      );
+    };
+
+    //e.currentTarget.reset();
     
   }
+  
   
   render(){
     
@@ -59,13 +73,17 @@ class Form extends Component{
         </div>
         <div className="input-field">
           <label>Year of Birth</label>
-          <input type="number" 
+          <input type="date" 
+          defaultValue='2000-10-10'
           ref={this.yearRef} 
-          min='1950'
-          max='2019'
+          max="2019-12-31"
+          //max='2019'
           
           required />
         </div>
+
+        
+        
         
         <button type="submit" className="form-btn">Calculate</button>
       </form>

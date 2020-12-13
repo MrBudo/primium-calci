@@ -65,6 +65,7 @@ select {
 
 input[type="text"],
 input[type="number"],
+input[type="date"],
 select,
 textarea {
   display: block;

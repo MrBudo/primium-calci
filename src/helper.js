@@ -3,7 +3,10 @@ function calculateInsurance(value, year, occupation ){
   let byear;
   calculation=value
   byear=year
-  let age = new Date().getFullYear() - byear;  
+  console.log(byear)
+  var inum = parseInt(byear);
+  console.log( inum)
+  let age = new Date().getFullYear() - inum;  
 
   console.log(age)
 
