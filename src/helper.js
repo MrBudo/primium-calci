@@ -1,33 +1,35 @@
+var ageCalculator = require('age-calculator');
+let {AgeFromDateString, AgeFromDate} = require('age-calculator');
+
+
+
 function calculateInsurance(value, year, occupation ){
   let calculation;
-  let byear;
+
   calculation=value
-  byear=year
-  console.log(byear)
-  var inum = parseInt(byear);
-  console.log( inum)
-  let age = new Date().getFullYear() - inum;  
+   
 
-  console.log(age)
-
+  
+  let ageFromString = new AgeFromDateString(year).age;
+  console.log("value from ageFromString", ageFromString);
     
   switch (occupation) {
-    case 'cleaner':
+    case 'Cleaner':
     calculation = calculation * 1.50;
     break;
-    case 'doctor':
+    case 'Doctor':
     calculation = calculation * 1.00;
     break;
-    case 'author':
+    case 'Author':
     calculation = calculation * 1.25;
     break;
-    case 'farmer':
+    case 'Farmer':
     calculation = calculation * 1.75;
     break;
-    case 'mechanic':
+    case 'Mechanic':
     calculation = calculation * 1.75;
     break;
-    case 'florist':
+    case 'Florist':
     calculation = calculation * 1.50;
     break;
     default:
@@ -35,7 +37,7 @@ function calculateInsurance(value, year, occupation ){
   }
   
   
-    calculation = (calculation *age )*0.012;
+    calculation = (calculation *ageFromString )*0.012;
   return parseFloat(calculation).toFixed(2);
 }
 

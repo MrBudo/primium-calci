@@ -1,5 +1,5 @@
 import React , { Component,useState } from 'react';
-import Age from './Age'
+
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker'
 
@@ -10,7 +10,7 @@ class Form extends Component{
   valueRef = React.createRef();
   brandRef = React.createRef();
   yearRef = React.createRef();
-  nameRef = React.createRef();
+  nameRef = React.createRef();  
 
   handle = (e) => {
     e.preventDefault();
@@ -23,15 +23,7 @@ class Form extends Component{
     }
     this.props.handle(mainInfo);
 
-    const Example = () => {
-      const [startDate, setStartDate] = useState(null);
-      return (
-        
-        <DatePicker 
-        selected={startDate} 
-        onChange={date => setStartDate(date)} />
-      );
-    };
+    
 
     //e.currentTarget.reset();
     
@@ -43,9 +35,9 @@ class Form extends Component{
     return(
       
       <form className="form-wrapper" onSubmit={this.handle}>
-        <h1 className="form-title">Complete the following fields</h1>
+        <h1 className="form-title">Complete the following fields to calculate life insurance premium</h1>
         <div className="input-field">
-          <label>Name</label>
+          <label>Full Name</label>
           <input type="text" 
           ref={this.nameRef} 
           pattern="[a-zA-Z]+[a-zA-Z ]+" 
@@ -62,21 +54,23 @@ class Form extends Component{
         </div>
         <div className="input-field">
           <label>Occupation</label>
-          <select name="brand" ref={this.brandRef}>
-            <option value="cleaner">Cleaner</option>
-            <option value="doctor">Doctor</option>
-            <option value="author">Author</option>
-            <option value="farmer">Farmer</option>
-            <option value="mechanic">Mechanic</option>
-            <option value="florist">Florist</option>
+          <select name="Brand" ref={this.brandRef}>
+            <option value="Cleaner">Cleaner</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Author">Author</option>
+            <option value="Farmer">Farmer</option>
+            <option value="Mechanic">Mechanic</option>
+            <option value="Florist">Florist</option>
           </select>
         </div>
         <div className="input-field">
-          <label>Year of Birth</label>
+          <label>Date of Birth</label>
           <input type="date" 
-          defaultValue='2000-10-10'
+          date-format ='DD MM YYYY'
+          timezone="[[timezone]]"
           ref={this.yearRef} 
-          max="2019-12-31"
+          min = {new Date().getFullYear - 150}
+          max ={ new Date().toDateString}
           //max='2019'
           
           required />
