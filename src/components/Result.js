@@ -9,7 +9,7 @@ class Result extends Component{
 
     return(
       <div className="resume-wrapper">
-        <h1 className="form-title">Calculated Premium</h1>
+        <h1 className="form-title"> Your Calculated Premium</h1>
         <p className="result-price">${resultPrice}</p>
       </div>
     )

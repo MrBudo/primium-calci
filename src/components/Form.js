@@ -67,10 +67,10 @@ class Form extends Component{
           <label>Date of Birth</label>
           <input type="date" 
           date-format ='DD MM YYYY'
-          timezone="[[timezone]]"
+          //timezone="[[timezone]]"
           ref={this.yearRef} 
-          min = {new Date().getFullYear - 150}
-          max ={ new Date().toDateString}
+          //min = "1870-12-31"
+         // max ={ new Date().toDateString}
           //max='2019'
           
           required />

@@ -16,9 +16,10 @@ class Resume extends Component {
     if (!value || !occupation || !year ) return null;
 
     let dateStr =new Date(year)
-
+    console.log(dateStr)
     let bdate = dateStr.getDate()
-    let bmonth = dateStr.getMonth()
+    let bmonth = dateStr.getMonth()+1
+    console.log(bmonth)
     let byear = dateStr.getFullYear()
 
     return(
